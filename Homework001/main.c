@@ -27,7 +27,7 @@ int main()
     float wage;                 /* hourly wage                       */
 
     /* open a file called home4.txt */
-    if ((outputfileptr = fopen("home4.txt", "w")) == (FILE *) NULL)
+    if ((outputfileptr = fopen("/tmp/home4.txt", "w")) == (FILE *) NULL)
     {
         fprintf(stderr, "Error, Unable to open file\n");  /* stderr will print to the screen */
         exit(1);
