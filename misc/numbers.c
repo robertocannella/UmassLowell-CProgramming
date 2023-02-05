@@ -3,8 +3,24 @@
 //
 #include "numbers.h"
 
-int evaluateOperator (){
+float evaluateOperator (float a, char op, float b){
 
-    return 34;
+    switch (op) {
+        case '+':
+            return a + b;
+            break;
+        case '-':
+            return a - b;
+            break;
+        case '/':
+            return a / b;
+            break;
+        case '*':
+            return a * b;
+            break;
+        default:
+            0;
+    }
+    return 0;
 
 }
