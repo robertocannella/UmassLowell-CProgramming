@@ -8,8 +8,9 @@
 //
 //   Date: 02/12/2023
 //
-//   Description: Program which determines gross pay
-//   and outputs are sent to a designated file.
+//   Description: Program which determines gross pay,
+//   including overtime. Outputs are sent to a
+//   designated file.
 //
 //
 //********************************************************
@@ -17,35 +18,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define     NUMBER_ENTRIES      1       /* number of entries to process                     */
+#define     OVERTIME_RATE       1.5     /* rate of overtime pay                             */
+#define     STD_HOURS           40.0    /* base hours                                       */
+
 int main ( )
 {
-    int clockNum;              /*  employee clock number             */
-    float grossPay;            /*  gross pay for week (wage * hours) */
-    float hours;               /*  number of hours worked per week   */
-    int numEntries;            /*  number of entries to process      */
-    FILE *outputfileptr;       /*  pointer to the output file        */
-    float wage;                /*  hourly wage                       */
+    int     clockNum;                   /*  employee clock number                           */
+    float   grossPay;                   /*  gross pay for week (wage * hours)               */
+    float   hours;                      /*  number of hours worked per week                 */
+    FILE    *outputfileptr;             /*  pointer to the output file                      */
+    float   overtimeHours = 0;          /*  hours above STD_HOURS                           */
+    float   overtimePay;                /*  overtime pay (wage * OVERTIME_RATE * OT hours   */
+    float   wage;                       /*  hourly wage                                     */
 
     /* open a file called /tmp/home2.txt */
-    if ((outputfileptr = fopen("/tmp/home2.txt", "w")) == (FILE *) NULL)
-    {
+    if ((outputfileptr = fopen("/tmp/home2.txt", "w")) == (FILE *) NULL){
         fprintf(stderr, "Error, Unable to open file\n");   /* stderr will print to the screen */
         exit(1);
     }
 
     /* print header information to the file */
     fprintf(outputfileptr, "\n\n\t----------------------------------------------------------\n");
-    fprintf(outputfileptr, "\tClock # Wage Hours Gross\n");
+    fprintf(outputfileptr, "\tClock #        Wage        Hours           OT        Gross\n");
     fprintf(outputfileptr, "\t----------------------------------------------------------\n");
 
     /* begin Pay Calculator */
     printf ("*** Pay Calculator ***\n");
 
-    /* prompt user for total number of entries to process */
-    printf("How many employees would you like to process? ");
-    scanf("%d", &numEntries);
-
-    for (int i = 0; i < numEntries; ++i) { /* begin gross pay loop */
+    for (int i = 0; i < NUMBER_ENTRIES; ++i) { /* begin gross pay loop */
         /* prompt for input values from the screen */
         printf("\nEnter clock number for employee: ");
         scanf("%d", &clockNum);
@@ -54,11 +55,20 @@ int main ( )
         printf("\nEnter the number of hours the employee worked: ");
         scanf("%f", &hours);
 
+        /* Conditional test for overtime: hours >= STD_HOURS */
+        if (hours >= STD_HOURS){
+            overtimeHours = hours - STD_HOURS;
+            hours = STD_HOURS;
+            printf("OT HOURS: %.2f \n",overtimeHours);
+        }
+
         /* calculate gross pay */
-        grossPay = wage * hours;
+        grossPay = wage * hours;                                /* standard wages           */
+        overtimePay = wage * OVERTIME_RATE * overtimeHours;     /* overtime wages           */
+        grossPay += overtimePay;                                /* sum standard & ot wages  */
 
         /* print out data for current employee to the file */
-        fprintf(outputfileptr, "\t%06i %5.2f %5.1f %7.2f\n", clockNum, wage, hours, grossPay);
+        fprintf(outputfileptr, "\t%06i %12.2f %12.1f %12.1f %12.3f\n", clockNum, wage, hours, overtimeHours, grossPay);
         printf("\nData added to file\n");
 
     }/* end gross pay loop */
