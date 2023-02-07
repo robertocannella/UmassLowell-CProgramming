@@ -4,9 +4,9 @@
 //
 // Name: Roberto Cannella
 //
-// Class: C Programming, <replace with Semester and Year>
+// Class: C Programming, Spring 2023
 //
-// Date: <replace with the current date>
+// Date: 02-12-2022
 //
 // Description: Program which determines overtime and
 // gross pay for a set of employees with outputs sent
@@ -58,8 +58,8 @@ int main ( )
         scanf("%f", &hours);
 
         /* calculate overtime hours */
-        overtimeHours = 0;
-        if (hours >= STD_HOURS)
+        overtimeHours = 0;                          /* set/reset overtime value             */
+        if (hours >= STD_HOURS)                     /* set overtime hours only if necessary  */
             overtimeHours = hours - STD_HOURS;
 
         /* calculate gross pay */
