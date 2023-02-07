@@ -1,17 +1,16 @@
 //*******************************************************
 //
-//   Homework: 3
+// Assignment 3 - Conditionals
 //
-//   Name: Roberto Cannella
+// Name: Roberto Cannella
 //
-//   Class: C Programming, Spring 2023
+// Class: C Programming, <replace with Semester and Year>
 //
-//   Date: 02/12/2023
+// Date: <replace with the current date>
 //
-//   Description: Program which determines gross pay,
-//   including overtime. Outputs are sent to a
-//   designated file.
-//
+// Description: Program which determines overtime and
+// gross pay for a set of employees with outputs sent
+// to specified file.
 //
 //********************************************************
 
