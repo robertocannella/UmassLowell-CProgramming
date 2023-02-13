@@ -59,7 +59,7 @@ int main ( )
 
         /* calculate overtime hours */
         overtimeHours = 0;                          /* set/reset overtime value             */
-        if (hours >= STD_HOURS)                     /* set overtime hours only if necessary  */
+        if (hours >= STD_HOURS)                     /* set overtime hours only if necessary */
             overtimeHours = hours - STD_HOURS;
 
         /* calculate gross pay */
