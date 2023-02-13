@@ -34,12 +34,12 @@ int main()
     // unique employee identifier
     long int clock [SIZE] = {98401, 526488, 765349, 34645, 127615};
  
-    int count;                 // loop index
-    float grossPay [SIZE];     // weekly gross pay - normal pay + overtime pay         
-    float hours [SIZE];        // hours worked in a given week
-    float normalPay [SIZE];    // normal weekly pay without any overtime
-    float overtimeHours[SIZE]; // overtime hours worked in a given week
-    float overtimePay [SIZE];  // overtime pay for a given week
+    float   hours [SIZE];        // hours worked in a given week
+    float   grossPay [SIZE];     // weekly gross pay - normal pay + overtime pay
+    float   normalPay [SIZE];    // normal weekly pay without any overtime
+    float   overtimeHours[SIZE]; // overtime hours worked in a given week
+    float   overtimePay [SIZE];  // overtime pay for a given week
+    float   totals [SIZE] = {};  // totals of each employee - initialize to zeros
 
     // hourly pay for each employee
     float wage [SIZE] = {10.6, 9.75, 10.5, 12.25, 8.35}; 
@@ -47,11 +47,11 @@ int main()
     printf ("\n*** Pay Calculator ***\n\n");
 
     // Process each employee one at a time
-    for (count = 0; count < SIZE; count++)
+    for (int count = 0; count < SIZE; count++)
     {
 
         // Prompt and Read in hours worked for employee
-        printf("\nEnter the number of hours the employee worked for %06i: ", clock[count]);
+        printf("\nEnter the number of hours the employee worked for %06li: ", clock[count]);
         scanf("%f", &hours[count]);     // Store into hours[]
 
 
@@ -73,6 +73,13 @@ int main()
 
         // Calculate Gross Pay
         grossPay[count] = normalPay[count] + overtimePay[count];
+
+
+        // Sum up totals
+        totals[1] += wage[count];
+        totals[2] += hours[count];
+        totals[3] += overtimeHours[count];
+        totals[4] += grossPay[count];
     }
 
     // TODO: Print a nice table header
@@ -82,11 +89,15 @@ int main()
 
     // Now that we have all the information in our arrays, we can
     // Access each employee and print to screen or file
-    for (count = 0; count < SIZE; count++)
+    for (int count = 0; count < SIZE; count++)
     {
         // TODO: Print employee information from your arrays
-        printf("\t    %06i %12.2f %12.1f %12.1f %12.2f\n", clock[count], wage[count], hours[count], overtimeHours[count], grossPay[count]);
+        printf("\t    %06li %12.2f %12.1f %12.1f %12.2f\n", clock[count], wage[count], hours[count], overtimeHours[count], grossPay[count]);
     }
 
+    // Print Totals
+    printf("\t------------------------------------------------------------------\n");
+    printf("\t    Totals %12.2f %12.1f %12.1f %12.2f   \n",totals[1],totals[2],totals[3],totals[4]);
+    printf("\t------------------------------------------------------------------\n");
     return(0);
 }
