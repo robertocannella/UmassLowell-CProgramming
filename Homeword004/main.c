@@ -39,8 +39,7 @@ int main()
     printf ("\n*** Pay Calculator ***\n\n");
 
     // Process each employee one at a time
-    for (int count = 0; count < SIZE; count++)
-    {
+    for (int count = 0; count < SIZE; count++){
 
         // Prompt and Read in hours worked for employee
         printf("\nEnter the number of hours for employee #%06li: ", clock[count]);
@@ -79,17 +78,16 @@ int main()
     // Access each employee and print to screen or file
     for (int count = 0; count < SIZE; count++)
     {
-        // TODO: Print employee information from your arrays
+        // Print employee information from your arrays
         printf("\t    %06li %12.2f %12.1f %12.1f %12.2f\n", clock[count], wage[count], hours[count], overtimeHours[count], grossPay[count]);
     }
 
     // Print Totals
     printf("\t------------------------------------------------------------------\n");
     printf("\t    Totals %12.2f %12.1f %12.1f %12.2f   \n",totals[1],totals[2],totals[3],totals[4]);
-    printf("\t------------------------------------------------------------------\n");
 
     // Print Averages
-    printf("\t  Averages %12.2f %12.1f %12.1f %12.2f   \n",totals[1]/SIZE,totals[2]/SIZE,totals[3]/SIZE,totals[4]/SIZE);
     printf("\t------------------------------------------------------------------\n");
+    printf("\t  Averages %12.2f %12.1f %12.1f %12.2f   \n",totals[1]/SIZE,totals[2]/SIZE,totals[3]/SIZE,totals[4]/SIZE);
     return(0);
 }
