@@ -19,5 +19,3 @@ void    printTableHeader (void);
 void    printEmp  (long int clockNumber[], float wageRate[], float hours[],
                     float overtimeHrs[], float grossPay[], float totals[], int size);
 void    updateTotals (float* totals, float wage, float hours, float overtimeHours, float gross);
-
-/* add other functions prototypes here */

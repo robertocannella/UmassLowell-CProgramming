@@ -2,7 +2,7 @@
 #include "employees.h"
 
 //**************************************************************
-// Function: calOT
+// Function: calcOT
 //
 // Purpose: Calculates the total overtime wages. Receives input
 // from the calling function and returns the product of the

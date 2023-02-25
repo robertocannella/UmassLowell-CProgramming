@@ -42,5 +42,4 @@ void printEmp (long int clockNumber[], float wageRate[], float hours[],
     printf("\t------------------------------------------------------------------\n");
     printf("\t  Averages %12.2f %12.1f %12.1f %12.2f   \n",totals[1]/size,totals[2]/size,totals[3]/size,totals[4]/size);
 
-
 }

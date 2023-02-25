@@ -9,10 +9,10 @@
 // more that the STD_HOURS amount. Returns the total overtime hours
 // worked, even if there are 0.
 //
-// Parameters: hours        - The total hours worked
+// Parameters:  hours           - The total hours worked
 //
-// Returns: overtimeHours   - The difference between the STD_HOURS and
-//                            the actual hours worked
+// Returns:     overtimeHours   - The difference between the STD_HOURS
+//                                and the actual hours worked
 //
 //**************************************************************
 
