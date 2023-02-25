@@ -16,20 +16,20 @@
 //
 //**************************************************************
 
-float calcOTHours (float hours)
-{
+float calcOTHours (float hours){
+
     float overtimeHours; /* total overtime hours worked */
 
     /* logic to calculate overtime hours */
-    if (hours > STD_HOURS){ /* Did the employee work more than STD_HOURS? */
+    if (hours > STD_HOURS){                     /* Did the employee work more than STD_HOURS?   */
 
-         overtimeHours = hours - STD_HOURS ;  /* YES, calculate overtime */
+         overtimeHours = hours - STD_HOURS ;    /* YES, calculate overtime                      */
 
     }else {
-
-         overtimeHours = 0;  /* NO, set overtime to 0 */
+         overtimeHours = 0;                     /* NO, set overtime to 0                        */
     }
 
     /* return overtimeHours back to the calling function */
     return (overtimeHours);
+
 }

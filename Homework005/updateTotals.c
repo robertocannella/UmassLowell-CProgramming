@@ -19,8 +19,8 @@
 //
 //**************************************************************
 
-void updateTotals (  float *totals, float wage, float hours, float overtimeHours, float gross)
-{
+void updateTotals (  float *totals, float wage, float hours, float overtimeHours, float gross){
+
     // Tally up each column and update the value in the array.
     totals[1] += wage;
     totals[2] += hours;

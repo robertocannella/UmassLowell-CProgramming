@@ -28,10 +28,11 @@ void printEmp (long int clockNumber[], float wageRate[], float hours[],
 
     // Now that we have all the information in our arrays, we can
     // access each employee and print to screen
-    for (int count = 0; count < size; count++)
-    {
+    for (int count = 0; count < size; count++){
+
         // Print employee information from your arrays
         printf("\t    %06li %12.2f %12.1f %12.1f %12.2f\n", clockNumber[count], wageRate[count], hours[count], overtimeHours[count], grossPay[count]);
+
     }
 
     // Print Totals

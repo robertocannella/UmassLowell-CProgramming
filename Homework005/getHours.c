@@ -25,4 +25,5 @@ float getHours (long int clockNumber)
 
     /* return hours back to the calling function */
     return (hoursWorked);
+    
 }

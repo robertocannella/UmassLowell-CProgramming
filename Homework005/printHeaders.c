@@ -12,8 +12,7 @@
 //  
 //**************************************************************
 
-void printHeader (void) 
-{
+void printHeader (void){
 
     /* print the table header */
     printf ("\n\n*** Pay Calculator ***\n");
@@ -26,6 +25,7 @@ void printHeader (void)
     printf("\t------------------------------------------------------------------\n");
 
 }
+
 //**************************************************************
 // Function: printProgramHeader
 //

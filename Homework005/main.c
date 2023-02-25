@@ -38,8 +38,7 @@ int main()
     printProgramHeader();
 
     /* process each employee */
-    for (int i = 0; i < NUM_EMPL; ++i)
-    {
+    for (int i = 0; i < NUM_EMPL; ++i){
 
         /* Read in the hours for an employee */
         hours[i] = getHours (clockNumber[i]);

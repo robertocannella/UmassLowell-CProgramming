@@ -15,8 +15,7 @@
 //
 //**************************************************************
 
-float calcGross (float basePay, float overtimePay)
-{
+float calcGross (float basePay, float overtimePay){
 
     /* return the sum of base and overtime pay to the calling function*/
     return (basePay + overtimePay);
