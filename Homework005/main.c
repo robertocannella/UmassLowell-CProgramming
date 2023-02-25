@@ -34,6 +34,9 @@ int main()
     float       totals [NUM_EMPL]       = {};   // totals of each column
     float       wageRate [NUM_EMPL] = {10.60, 9.75, 10.5, 12.25, 8.35}; /* rate */
 
+    /* print the program header */
+    printProgramHeader();
+
     /* process each employee */
     for (int i = 0; i < NUM_EMPL; ++i)
     {
@@ -57,8 +60,8 @@ int main()
         updateTotals( totals, wageRate[i],hours[i],overtimeHours[i],grossPay[i]);
     }
 
-    /* Print the header info */
-    printHeader();
+    /* Print the table header */
+    printTableHeader();
 
     /* Print all the employees - call by reference */
     printEmp (clockNumber, wageRate, hours,

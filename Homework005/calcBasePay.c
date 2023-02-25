@@ -4,27 +4,21 @@
 //**************************************************************
 // Function: calcBasePay
 //
-// Purpose: Calculate the base wages for a standard work week.
+// Purpose: Performs calculations based on base wages for a
+// standard work week. Receives input from the calling function
+// and returns the results of a ternary operation.
 //
-// Parameters: hours - The total hours worked
+// Parameters:
+//          hours       - The total hours worked
+//          wageRate    - The standard rate for the employee
 //
-// Returns: basePay - Standard hours * Hours worked
+// Returns: float       - Standard hours * Hours worked
 //
 //**************************************************************
 
-float calcBasePay (float hours, float wageRate)
-{
+float calcBasePay (float hours, float wageRate){
 
-    float basePay;
+    /* return the calculated base pay, omitting any overtime hours */
+    return (hours>STD_HOURS) ? STD_HOURS * wageRate : hours * wageRate;
 
-    if (hours > STD_HOURS){
-
-        basePay = STD_HOURS * wageRate;
-
-    }else {
-        basePay = hours * wageRate ;
-    }
-
-    /* return standard pay back to the calling function */
-    return (basePay);
 }
