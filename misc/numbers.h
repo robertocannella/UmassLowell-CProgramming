@@ -5,6 +5,6 @@
 #ifndef MISC_NUMBERS_H
 #define MISC_NUMBERS_H
 
-extern float evaluateOperator (float, char, float);
-
+float evaluateOperator (float, char, float);
+void runEvaluateOperator();
 #endif //MISC_NUMBERS_H

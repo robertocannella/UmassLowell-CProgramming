@@ -44,3 +44,48 @@ void printEmp (long int clockNumber[], float wageRate[], float hours[],
     printf("\t  Averages %12.2f %12.1f %12.1f %12.2f   \n",totals[1]/size,totals[2]/size,totals[3]/size,totals[4]/size);
 
 }
+//*************************************************************
+// Function: printEmployeeData
+//
+// Purpose: Prints out all the employee information in a
+// nice and orderly table format.
+//
+// Parameters:
+//
+//     employeeData - A structure of employee data
+//     totals - Array of values which tally up the totals of each column
+//     size - Number of employees to process
+//
+// Returns: Nothing, prints to screen
+//
+//**************************************************************
+void printEmployeeData (struct employee employeeData[], float totals[], int size)
+{
+
+
+    // Print each employee details in a separate row.
+    for (int count = 0; count < size; count++){
+
+        // Print employee information from your arrays
+        printf("\t     %02i\\%02i\\%4i    %06li %12.2f %12.1f %12.1f %12.2f\n",
+               employeeData[count].hireDate.day,
+               employeeData[count].hireDate.month,
+               employeeData[count].hireDate.year,
+               employeeData[count].clockNumber,
+               employeeData[count].wageRate,
+               employeeData[count].hours,
+               employeeData[count].overtimeHours,
+               employeeData[count].grossPay);
+
+    }
+
+    // Print Totals
+    printf("\t------------------------------------------------------------------------------\n");
+    printf("\t                   Totals %12.2f %12.1f %12.1f %12.2f   \n",totals[1],totals[2],totals[3],totals[4]);
+
+    // Print Averages
+    printf("\t------------------------------------------------------------------------------"
+           "\n");
+    printf("\t                 Averages %12.2f %12.1f %12.1f %12.2f   \n",totals[1]/size,totals[2]/size,totals[3]/size,totals[4]/size);
+
+}

@@ -1,13 +1,22 @@
 #include <stdio.h>
 #include "numbers.h"
 
+
+
+
 int main() {
-    float a,b;
-    char op;
-    printf ("Enter an expression to evaluate: ");
-    scanf("%f %c %f",&a, &op,&b);
-    float result = evaluateOperator(a,op,b);
-    printf("%.2f", result);
+    //runEvaluateOperator();
+    int num;
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    if (1 && num) {
+        printf("\nIt is TRUE");
+    }
+    if (.1)
+        printf("\nIt is TRUE");
+    if (!(4 && 5))
+        printf("\nIt is TRUE");
     return 0;
 
 }

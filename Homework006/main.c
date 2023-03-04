@@ -1,19 +1,19 @@
 //********************************************************
 //
-// Assignment 5 - Functions
+// Assignment 6 - Structures
 //
 // Name: Roberto Cannella
 //
 // Class: C Programming, Spring 2023
 //
-// Date: 2023-February-26
+// Date: 2023-March-05
 //
-// Description: Program which determines overtime and
-// gross pay for a set of employees with outputs sent
-// to standard output (the screen).
+// Description: This program prompts the user for the number of hours
+// worked for each employee. It then calculates gross pay
+//        ** including overtime and displays the results in table. Functions
+//        ** and structures are used.
 //
-// Functions called by a combination of by value and by
-// reference.
+// Call by Value and Reference design
 //
 //********************************************************
 
@@ -25,14 +25,16 @@ int main()
 {
 
     /* Variable Declarations */
-    float       basePay [NUM_EMPL];             // normal weekly pay without any overtime
-    long  int   clockNumber[NUM_EMPL] = {98401,526488,765349,34645,127615}; /* ID */
-    float       grossPay [NUM_EMPL];            // weekly gross pay - normal pay + overtime pay
-    float       hours [NUM_EMPL];               // hours worked in a given week
-    float       overtimeHours[NUM_EMPL] = {};   // overtime hours worked in a given week
-    float       overtimePay [NUM_EMPL]  = {};   // overtime pay for a given week
-    float       totals [NUM_EMPL]       = {};   // totals of each column
-    float       wageRate [NUM_EMPL] = {10.60, 9.75, 10.5, 12.25, 8.35}; /* rate */
+
+    /* Set up a local variable to store the employee information */
+    struct employee employeeData[NUM_EMPL] = {
+            { .clockNumber = 98401,     .wageRate = 10.60,  .hireDate = {12,28,1995 } },
+            { .clockNumber = 526488,    .wageRate = 9.75,   .hireDate = {9,28,2004  } },
+            { .clockNumber = 765349,    .wageRate = 10.50,  .hireDate = {1,11,2009  } }, /* initialize clock and wage values */
+            { .clockNumber = 34645,     .wageRate = 12.25,  .hireDate = {10,12,2010 } },
+            { .clockNumber = 127615,    .wageRate = 8.35,   .hireDate = {3,4,2012   } }
+    };
+    float           totals [NUM_EMPL] = {};             /* Array to hold the totals of all employees*/
 
     /* print the program header */
     printProgramHeader();
@@ -41,30 +43,34 @@ int main()
     for (int i = 0; i < NUM_EMPL; ++i){
 
         /* Read in the hours for an employee */
-        hours[i] = getHours (clockNumber[i]);
+        employeeData[i].hours = getHours (employeeData[i].clockNumber);
 
         /* Calculate the base pay */
-        basePay[i] = calcBasePay(hours[i], wageRate[i]);
+        employeeData[i].basePay = calcBasePay(  employeeData[i].hours, employeeData[i].wageRate);
 
         /* Calculate overtime hours */
-        overtimeHours[i] = calcOTHours(hours[i]);
+        employeeData[i].overtimeHours = calcOTHours( employeeData[i].hours);
 
         /* Calculate the overtime pay */
-        overtimePay[i] = calcOT(overtimeHours[i],wageRate[i]);
+        employeeData[i].overtimePay = calcOT(employeeData[i].overtimeHours,employeeData[i].wageRate);
 
         /* Calculate the gross pay */
-        grossPay[i] = calcGross(basePay[i], overtimePay[i]);
+        employeeData[i].grossPay = calcGross(employeeData[i].basePay, employeeData[i].overtimePay);
 
         /* Update the totals */
-        updateTotals( totals, wageRate[i],hours[i],overtimeHours[i],grossPay[i]);
+        updateTotals( totals,
+                      employeeData[i].wageRate,
+                      employeeData[i].hours,
+                      employeeData[i].overtimeHours,
+                      employeeData[i].grossPay);
     }
 
     /* Print the table header */
-    printTableHeader();
+    printTableWithHireDate();
 
-    /* Print all the employees - call by reference */
-    printEmp (clockNumber, wageRate, hours,
-              overtimeHours, grossPay,totals, NUM_EMPL);
+
+    /* Print all the employees - call by value and reference */
+    printEmployeeData(employeeData, totals, NUM_EMPL);
 
     return (0);
 
